@@ -78,50 +78,52 @@ export function InlineMiniForm({ defaultEventType, source, serviceName, compact 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
-      <input
-        type="text"
-        required
-        placeholder="Numele tău"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading placeholder:text-pp-muted focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow"
-      />
-      <input
-        type="tel"
-        required
-        placeholder="07XX XXX XXX"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading placeholder:text-pp-muted focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow"
-      />
-      <select
-        value={eventType}
-        onChange={(e) => setEventType(e.target.value)}
-        className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow appearance-none"
-      >
-        <option value="">Tip eveniment</option>
-        <option value="Nuntă">Nuntă</option>
-        <option value="Botez">Botez</option>
-        <option value="Majorat">Majorat</option>
-        <option value="Corporate">Corporate</option>
-        <option value="Altele">Altele</option>
-      </select>
-      <input
-        type="date"
-        value={eventDate}
-        onChange={(e) => setEventDate(e.target.value)}
-        className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow"
-      />
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <input
+          type="text"
+          required
+          placeholder="Numele tău"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading placeholder:text-pp-muted focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow"
+        />
+        <input
+          type="tel"
+          required
+          placeholder="07XX XXX XXX"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading placeholder:text-pp-muted focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow"
+        />
+        <select
+          value={eventType}
+          onChange={(e) => setEventType(e.target.value)}
+          className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow appearance-none"
+        >
+          <option value="">Tip eveniment</option>
+          <option value="Nuntă">Nuntă</option>
+          <option value="Botez">Botez</option>
+          <option value="Majorat">Majorat</option>
+          <option value="Corporate">Corporate</option>
+          <option value="Altele">Altele</option>
+        </select>
+        <input
+          type="date"
+          value={eventDate}
+          onChange={(e) => setEventDate(e.target.value)}
+          className="px-4 py-3.5 rounded-xl bg-white border border-gray-200 text-sm text-pp-heading focus:outline-none focus:ring-2 focus:ring-pp-magenta/30 focus:border-pp-magenta transition-shadow"
+        />
+      </div>
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="btn-gold px-6 py-3.5 rounded-xl text-sm font-bold text-pp-heading whitespace-nowrap disabled:opacity-60"
+        className="btn-gold px-6 py-3.5 rounded-full text-sm font-bold text-pp-heading whitespace-nowrap disabled:opacity-60 self-end"
       >
         {status === 'loading' ? 'Se trimite...' : 'Cere Ofertă'}
       </button>
       {status === 'error' && (
-        <p className="sm:col-span-2 lg:col-span-5 text-xs text-red-500">Eroare. Sună direct: 0745 800 810</p>
+        <p className="text-xs text-red-500">Eroare. Sună direct: 0745 800 810</p>
       )}
     </form>
   )

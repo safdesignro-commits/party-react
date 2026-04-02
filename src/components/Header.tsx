@@ -54,13 +54,15 @@ export function Header() {
                 <svg className={`w-4 h-4 transition-transform ${activeDropdown === 'services' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               {activeDropdown === 'services' && (
-                <div className="absolute top-full left-0 w-72 bg-white rounded-2xl shadow-elevated border border-gray-100 p-3 mt-1">
+                <div className="absolute top-full left-0 w-72 pt-2">
+                <div className="bg-white rounded-2xl shadow-elevated border border-gray-100 p-3">
                   {services.map((item) => (
                     <Link key={item.href} href={item.href} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm text-pp-body hover:bg-pp-magenta-light hover:text-pp-magenta transition-colors">
                       <span>{item.label}</span>
                       {item.badge && <span className="text-[10px] font-bold uppercase bg-pp-teal text-white px-2 py-0.5 rounded-full">{item.badge}</span>}
                     </Link>
                   ))}
+                </div>
                 </div>
               )}
             </div>
@@ -76,12 +78,14 @@ export function Header() {
                 <svg className={`w-4 h-4 transition-transform ${activeDropdown === 'events' ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
               </button>
               {activeDropdown === 'events' && (
-                <div className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-elevated border border-gray-100 p-3 mt-1">
+                <div className="absolute top-full left-0 w-64 pt-2">
+                <div className="bg-white rounded-2xl shadow-elevated border border-gray-100 p-3">
                   {events.map((item) => (
                     <Link key={item.href} href={item.href} className="block px-4 py-2.5 rounded-xl text-sm text-pp-body hover:bg-pp-magenta-light hover:text-pp-magenta transition-colors">
                       {item.label}
                     </Link>
                   ))}
+                </div>
                 </div>
               )}
             </div>
